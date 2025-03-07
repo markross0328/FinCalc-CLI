@@ -23,42 +23,77 @@ git clone https://github.com/markross0328/FinCalc-CLI
 cd FinCalc-CLI
 ```
 
+## Project Structure
+
+The project is organized into different folders for different operating systems and feature sets:
+
+- **Root Directory**: Contains the original source files
+- **windows/full**: Windows-specific version with full functionality (arrow key navigation and system commands)
+- **windows/basic**: Windows version without system-specific features (no arrow key navigation)
+- **mac/basic**: Mac-compatible version without Windows-specific features
+
 ## Requirements
 
 ### Python Version
 - Python 3.6 or higher
-- Windows operating system (for msvcrt module)
+- Windows operating system (for msvcrt module) - only for the full Windows version
+- Any operating system for the basic version
 
 ### C++ Version
 - C++ compiler with C++11 support (e.g., GCC, Visual C++)
-- Windows operating system (for conio.h)
+- Windows operating system (for conio.h) - only for the full Windows version
+- Any operating system for the basic version
 
 ## Running the Python Version
 
-1. Ensure you have Python installed on your system. You can download it from [python.org](https://www.python.org/downloads/).
+### Windows Full Version (with arrow key navigation)
 
-2. Open a command prompt or terminal in the project directory.
+1. Navigate to the windows/full directory:
+   ```
+   cd windows/full
+   ```
 
-3. Run the Python script:
+2. Run the Python script:
    ```
    python main.py
    ```
 
-4. Use the arrow keys (↑ and ↓) to navigate the menu or press the corresponding number key.
+3. Use the arrow keys (↑ and ↓) to navigate the menu or press the corresponding number key.
 
-5. Follow the prompts to input values for your financial calculations.
+### Basic Version (Mac and Windows)
+
+1. Navigate to the mac/basic or windows/basic directory:
+   ```
+   cd mac/basic
+   ```
+   or
+   ```
+   cd windows/basic
+   ```
+
+2. Run the Python script:
+   ```
+   python main.py
+   ```
+
+3. Enter the number corresponding to your menu choice.
 
 ## Running the C++ Version
 
-### Using Visual Studio (Windows)
+### Windows Full Version (with arrow key navigation)
+
+#### Using Visual Studio (Windows)
 
 1. Open Visual Studio and create a new project.
-2. Add the `main.cpp` file to your project.
+2. Add the `windows/full/main.cpp` file to your project.
 3. Build and run the project (F5).
 
-### Using Command Line (Windows with MinGW)
+#### Using Command Line (Windows with MinGW)
 
-1. Open a command prompt in the project directory.
+1. Navigate to the windows/full directory:
+   ```
+   cd windows/full
+   ```
 
 2. Compile the C++ code:
    ```
@@ -69,6 +104,58 @@ cd FinCalc-CLI
    ```
    ./fincalc
    ```
+
+### Basic Version (Mac and Windows)
+
+#### Using Command Line (Mac with GCC/Clang)
+
+1. Navigate to the mac/basic directory:
+   ```
+   cd mac/basic
+   ```
+
+2. Compile the C++ code:
+   ```
+   g++ main.cpp -o fincalc
+   ```
+   or with Clang:
+   ```
+   clang++ main.cpp -o fincalc
+   ```
+
+3. Run the compiled executable:
+   ```
+   ./fincalc
+   ```
+
+#### Using Command Line (Windows with MinGW)
+
+1. Navigate to the windows/basic directory:
+   ```
+   cd windows/basic
+   ```
+
+2. Compile the C++ code:
+   ```
+   g++ main.cpp -o fincalc
+   ```
+
+3. Run the compiled executable:
+   ```
+   ./fincalc
+   ```
+
+## Version Differences
+
+### Full Windows Version
+- Uses msvcrt for arrow key navigation in the Python version
+- Uses conio.h for keyboard input in the C++ version
+- Uses system("cls") to clear the console
+
+### Basic Version (Mac and Windows)
+- Uses simple numeric input for menu navigation
+- No system-specific libraries or commands
+- Compatible with most operating systems
 
 ## Usage
 
